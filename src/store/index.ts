@@ -1,9 +1,15 @@
-import { createStore } from "vuex";
+import { createStore } from 'vuex';
+import MovieModule, { IGenre, IMovieListItem } from './modules/MovieStore';
 
-export default createStore({
-  state: {},
-  getters: {},
-  mutations: {},
-  actions: {},
-  modules: {},
+interface Store {
+  movieList: IMovieListItem[];
+  genreList: IGenre[];
+}
+
+const store = createStore<Store>({
+  modules: {
+    movie: MovieModule,
+  },
 });
+
+export default store;
